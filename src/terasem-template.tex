@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template for Journal of Personal Cyberconsciousness
+% Based on Vol. 13, Iss. 1 (2025)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+
+% --- REQUIRED PACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}         % For setting margins
+\usepackage{graphicx}         % For including the logo
+\usepackage[hyphens]{url}     % For handling URLs in references
+\usepackage[numbers]{natbib}  % For bibliography
+\usepackage[nottoc]{tocbibind} % Automatically adds "References" to TOC
+\usepackage{hyperref}
+\hypersetup{
+	hidelinks = true,
+	colorlinks = false,
+	citecolor = black,
+	linktoc=all % Makes TOC entries clickable
+}         % For clickable links
+\usepackage{titling}          % To customize the \maketitle command
+\usepackage{booktabs}         % For professional tables
+\usepackage{lipsum}
+
+
+% --- PAGE GEOMETRY ---
+\geometry{margin=1in} % Set 1-inch margins
+
+% --- TITLE & AUTHOR DEFINITIONS ---
+\title{A TITLE}
+\author{James XXX} % author
+\date{} % No date, as it's in the custom header
+
+% --- CUSTOM \maketitle COMMAND ---
+% This section redefines \maketitle to add the journal's header
+\pretitle{
+	% -- Journal Header Table (Updated Two-Column Layout with Frame) --
+	\noindent\fbox{ % Add the frame
+		\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{ % Create inner box with correct width
+			\begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}} | c@{}} % Use \linewidth
+				% --- Left Column ---
+				\begin{tabular}[b]{l} % [b] to bottom-align the whole text block
+					\textbf{\Large Journal of Personal Cyberconsciousness} \\
+					\\[1em] % Add vertical space
+					Vol. 13, Iss. 1 (2025) \\
+					\\[1em] % Add vertical space
+					© Terasem Movement Transreligion, Inc.
+				\end{tabular}
+				& % Separator
+				% --- Right Column ---
+				\begin{tabular}[b]{c} % [b] to bottom-align the logo/URL block
+					% Watch out for the logo file 'terasemjournals-logo.pdf' must be properly referenced
+					% User path:
+					\includegraphics[width=3cm]{./imgs/terasemjournals-logo.pdf} \\ 
+					\href{http://terasemjournals.net}{terasemjournals.net}
+				\end{tabular}
+			\end{tabular*}
+		} % End \parbox
+	} % End \fbox
+	\vspace{2em} % Space between header and title
+	% -- Default Title Formatting --
+	\begin{center}
+		\Huge\bfseries
+	}
+	\posttitle{\par\end{center}\vspace{1em}}
+\preauthor{\begin{center}\Large}
+	\postauthor{\par\end{center}\vspace{2em}}
+
+% --- Disable default abstract ---
+\renewcommand{\abstractname}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- BEGIN DOCUMENT ---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	% --- Renders the custom title block, title, and author ---
+	\maketitle
+	
+	% --- ABSTRACT ---
+	% Manually formatted abstract with centered title
+	\begin{center}
+		\bfseries ABSTRACT
+	\end{center}
+	\vspace{0.5em} % Small space between "ABSTRACT" and the text
+	
+	\noindent \lipsum[1]
+	\vspace{2em} % Space before table of contents
+	
+	% --- TABLE OF CONTENTS ---
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	% --- BODY SECTIONS ---
+	% Using \section for numbered headings that appear in TOC
+	\section{Section 1}
+	\lipsum[1-1]
+	
+	
+	
+	\section{Section 2}
+	\lipsum[1]
+	\subsection{Subsection}
+	\lipsum[1]
+	
+	
+	% --- CONCLUSION ---
+	\clearpage
+	\section{Conclusion}
+	\lipsum[1-2]
+	\cite{minsky2008}
+	
+	\clearpage
+	% --- APPENDIX ---
+	\section{Appendix}
+	% ... more text ...
+	
+	
+	% --- REFERENCES ---
+	\clearpage
+	\bibliographystyle{unsrt} % Style to list refs in order of appearance
+	\bibliography{references} % Calls the references.bib file
+	
+\end{document}
